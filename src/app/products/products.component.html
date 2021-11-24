@@ -1,0 +1,10 @@
+<div class="container">
+<app-card *ngFor="let pokemon of getPokemonsList()"
+    [pokemon]="pokemon"
+></app-card>
+</div>
+<app-paginator 
+    [length]="pageConfig.count"
+    [pageSize]="limit"
+    (pageEvent)="setPages($event)"
+    ></app-paginator>
