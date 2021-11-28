@@ -13,10 +13,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LogoComponent } from './header/logo/logo.component';
 import { ToolbarComponent } from './header/toolbar/toolbar.component';
-import { ProductOverviewComponent } from './product-overview/product-overview.component';
 import { CardComponent } from './products/card/card.component';
 import { PaginatorComponent } from './products/paginator/paginator.component';
 import { ProductsComponent } from './products/products.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ItemCardComponent } from './shopping-cart/item-card/item-card.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
+import {MatRippleModule} from '@angular/material/core';
+import { ProductOverviewComponent } from './product-overview/product-overview.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +36,10 @@ import { ProductsComponent } from './products/products.component';
     ProductsComponent,
     ProductOverviewComponent,
     CardComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    ShoppingCartComponent,
+    ItemCardComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -38,7 +50,14 @@ import { ProductsComponent } from './products/products.component';
     MatCardModule,
     MatExpansionModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatGridListModule,
+    MatDividerModule,
+    MatListModule,
+    MatBadgeModule,
+    MatIconModule,
+    MatRippleModule   
+
   ],
   providers: [],
   bootstrap: [AppComponent]

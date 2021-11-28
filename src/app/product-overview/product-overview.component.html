@@ -1,1 +1,25 @@
-<p>product-overview works!</p>
+
+<mat-card class="overview-image-card" [ngClass]="elevation">
+  <img mat-card-image [src]="product.image" alt="pokemon image">
+</mat-card>
+
+
+  <mat-card class="resume-card" [ngClass]="elevation">
+    <mat-card-title> 
+      {{product.name}}
+    </mat-card-title>
+    <mat-card-subtitle *ngFor="let type of getTypes()">
+      <h2>slot {{type.slot}} type: {{ type.type.name }}</h2>
+    </mat-card-subtitle>
+
+    <mat-card-content>
+      {{ product.species }}
+    </mat-card-content>
+  
+  
+      <mat-card-actions align="end">
+        <button mat-button (click)="addItemToCart()">ADD TO CART</button>
+      </mat-card-actions>
+    </mat-card>
+  
+  

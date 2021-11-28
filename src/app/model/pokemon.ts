@@ -2,8 +2,30 @@
      number: number;
      name: string;
      image: string;
+     height: number;
+     weight: number;
+     abilities:[]
+     base_experience:number
+     moves: []
+     species:{}
+     stats:[]
+     types:[]
+
  }
 
+//  {
+//     abilities[{name},{}]
+//     base_experience: number,
+//     height: number,
+//     id:number,
+//     moves:[{move:{name,url}}],
+//     name: string,
+//     species{name,url}
+//     stats[{base_stat:number,stat.name}]
+//     types[{type.name}]
+//     weight:number
+
+//  }
 
 // abilities: (3) [{…}, {…}, {…}]
 // base_experience: 172
@@ -23,21 +45,3 @@
 // stats: (6) [{…}, {…}, {…}, {…}, {…}, {…}]
 // types: [{…}]
 // weight: 666
-
-
-
- export function getImage(id: number): string {
-     return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${getNumber(id)}.png`
- }
- export function getNumber(id: number): string {
-     return leadingZero(id);
- }
-
- function leadingZero(str: string | number, size: number = 3): string {
-     let s = String(str);
-     while(s.length < (size || 2)){
-         s='0' + s;
-     }
-
-     return s;
-}

@@ -1,3 +1,6 @@
+import { ShoppingCartService } from './../../services/shopping-cart.service';
+import { ShoppingCartComponent } from './../../shopping-cart/shopping-cart.component';
+import { Router, Routes } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -9,9 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  cartSize: number = 0
+
+  constructor(
+    private router: Router,
+    private shoppingCartService: ShoppingCartService,
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  openCart(){
+    this.router.navigate(['/cart'])
+  }
+  openHome(){
+    this.router.navigate([''])
+  }
+
+  getCartSize():number {
+    return this.shoppingCartService.getCartSize()
   }
 
 }

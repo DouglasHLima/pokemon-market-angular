@@ -1,6 +1,7 @@
 <div class="container">
 <app-card *ngFor="let pokemon of getPokemonsList()"
     [pokemon]="pokemon"
+    (description)="openDescriptionPage($event)"
 ></app-card>
 </div>
 <app-paginator 

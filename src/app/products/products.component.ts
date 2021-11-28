@@ -1,9 +1,15 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { PokemonConfig } from 'src/app/model/PokemonConfig';
+
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
-import { PokemonConfig } from '../model/pokemon-config';
+
+
+
 import { PokemonService } from '../services/pokemon.service';
 import { AllPokemonsConfig } from './../model/AllPokemonsConfig';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-products',
@@ -18,7 +24,10 @@ export class ProductsComponent implements OnInit {
   limit: number = 10
 
 
-  constructor(public pokemonService: PokemonService) { 
+  constructor(
+    private pokemonService: PokemonService,
+    private router: Router,
+    ) { 
     
   }
 
@@ -42,6 +51,11 @@ export class ProductsComponent implements OnInit {
   setPages(event: PageEvent){
     let offset = event.pageIndex * event.pageSize;
     this.getPaginationRange(offset,event.pageSize)
+  }
+
+  openDescriptionPage(id: string){
+    console.log(id)
+    this.router.navigate(['product-overview',id])
   }
 
 }

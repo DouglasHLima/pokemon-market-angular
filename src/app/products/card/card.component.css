@@ -1,15 +1,18 @@
 
-.example-card {
+.product-card {
     max-width: 210px;
-    margin: 5px;
-    padding: 5px;
+    max-height: fit-content;
+    margin: 10px;
+    padding: 0px;
+    
   }
 .mat-card-title{
   margin-left: 5px;
   text-transform: capitalize;
 }
+
+.mat-card-actions {
+  margin: 0px;
+  padding: 0px;
+}
   
-  .example-header-image {
-    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
-    background-size: cover;
-  }
