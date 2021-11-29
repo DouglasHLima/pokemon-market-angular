@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+div {
+  background-color: rgb(206, 219, 253);
+  width: 30%;
+  min-height: fit-content;
+  min-width: fit-content;
+  
+  margin-bottom: 20px;
+  margin: 10px; 
+}
+
+div.product-list {
+  min-height: fit-content;
+  max-width: 30%;
+  margin-bottom: 20px;
+  margin: 10px; 
+}
+
+.checkout {
+  padding: 10px;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.button{
+}

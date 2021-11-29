@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="mat-card-avatar"
+      [style]="cardStyle"> </div>
+  <mat-card-title>{{product.name}}</mat-card-title>
+  <mat-card-subtitle>id: {{product.number}}</mat-card-subtitle>
+  <mat-card-subtitle>
+    <h1>{{product.getPrice() | currency:'BRL':true}}</h1>
+  </mat-card-subtitle>
+  
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-icon-button (click)="onAddItem()">
+      <mat-icon>keyboard_arrow_up</mat-icon>
+    </button>
+    <input type="text" readonly size="1" [value]="itemCart.quantity">
+    <button mat-icon-button (click)="onSubtractItem()"
+      *ngIf="itemCart.quantity > 1;else excludeButton"
+    ><mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <ng-template #excludeButton>
+      <button mat-icon-button (click)="onRemoveItem()">
+        <mat-icon>close</mat-icon>
+      </button> 
+    </ng-template>
+  </mat-card-actions>
+</mat-card>
