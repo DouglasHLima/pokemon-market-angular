@@ -1,6 +1,7 @@
+import { PokemonSpecies, PokemonTypes } from './../model/pokemon';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { pokemonSpecies, pokemonTypes } from '../model/Pokemon';
+
 
 import { Product } from './../model/Product';
 import { PokemonService } from './../services/pokemon.service';
@@ -19,7 +20,7 @@ export class ProductOverviewComponent implements OnInit {
 
   public product: Product = new Product(0, '', '', 0, 0, [], 0, [], []);
 
-  public pokemonSpecieStats: pokemonSpecies = {
+  public pokemonSpecieStats: PokemonSpecies = {
     base_happiness: 0,
     capture_rate: 0,
     color: { name: '' },
@@ -69,7 +70,7 @@ export class ProductOverviewComponent implements OnInit {
     });
   }
 
-  getTypes(): pokemonTypes[] {
+  getTypes(): PokemonTypes[] {
     return this.product.types;
   }
 

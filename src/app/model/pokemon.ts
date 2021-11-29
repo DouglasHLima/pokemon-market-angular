@@ -12,7 +12,7 @@ export interface Pokemon {
      types:[]
 }
 
-export interface pokemonSpecies {
+export interface PokemonSpecies {
     base_happiness: number;
     capture_rate: number;
     color: { name: string };
@@ -25,7 +25,7 @@ export interface pokemonSpecies {
     is_mythical: boolean;
 }
   
-  export interface pokemonTypes {
+  export interface PokemonTypes {
     slot: number;
     type: { name: string; url: string };
 }

@@ -1,4 +1,4 @@
-import { Pokemon } from './../model/Pokemon';
+import { Pokemon } from './Pokemon';
 
 export class Product {
     
