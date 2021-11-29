@@ -1,4 +1,4 @@
-import { PokemonSpecies, PokemonTypes } from './../model/pokemon';
+import { PokemonSpecies, PokemonTypes } from '../model/pokemon';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Pokemon } from '../model/Pokemon';
+import { Pokemon } from '../model/pokemon';
 import { AllPokemonsConfig } from './../model/AllPokemonsConfig';
 
 
