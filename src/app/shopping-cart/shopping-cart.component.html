@@ -1,21 +1,24 @@
-<!-- <div></div> -->
 <div class="product-list">
     <app-item-card *ngFor="let item of cart"
         [itemCart]="item"
         
         (modifyItemQuantity)="modifyItemQuantity($event)"
-        (excludeItem)="excludeItem($event)"
-        
+        (excludeItem)="excludeItem($event)"  
     >
-
     </app-item-card>
-
 </div>
+
 <div class="checkout">
-    <h1>checkout:</h1>
-    <h2
-    
-    >valor total: {{total | currency}} </h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group" >
+            <label for="postal-code">Postal Code:</label>
+            <input type="text" class="form-control" id="zipCodeInput"
+                formControlName="zipCode" required>
+            <div class="error-mesage" *ngIf="getValidation('zipCode')">{{getErrorMessage('zipCode')}} (ex. 00000-000)</div>
+        </div>
+        <h2>valor total: {{total | currency}} </h2>
+        <button mat-raised-button color="accent" type="submit" [disabled]="!form.valid">COMPRAR</button>
+    </form>
 </div>
  
 

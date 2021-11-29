@@ -1,6 +1,6 @@
 import { Pokemon } from './../model/Pokemon';
 
-export class Product implements Pokemon {
+export class Product {
     
     private price: number = 0
 
@@ -9,8 +9,6 @@ export class Product implements Pokemon {
     image: string;
     height: number;
     weight: number;
-    abilities;
-    base_experience: number;
     moves;
     species: {};
     stats;
@@ -23,8 +21,7 @@ export class Product implements Pokemon {
         image: string,
         height: number,
         weight: number,
-        abilities: [],
-        base_experience: number,
+
         moves:[],
         species: {},
         stats:[],
@@ -35,8 +32,6 @@ export class Product implements Pokemon {
         this.image = image;
         this.height = height;
         this.weight = weight;
-        this.abilities = abilities;
-        this.base_experience = base_experience;
         this.moves = moves;
         this.species = species;
         this.stats = stats;

@@ -1,21 +1,15 @@
 <mat-toolbar color="primary">
-    <button mat-button disabled>
-        <app-logo></app-logo>
-    </button>
-    <span>The Pokémon Market</span>
+    <button mat-button disabled><app-logo></app-logo></button>
     <button mat-icon-button (click)="openHome()">
         <mat-icon>home</mat-icon>
-      </button>
-    
-      <span class="blank-spacer">
-    <button mat-raised-button color="primary">Products</button>
-    <button mat-raised-button color="primary">Primary</button>
-</span>
+    </button>
+    <span class="blank-spacer"></span>
     <button mat-icon-button class="shopping-cart-icon"
         position="end"
         (click)="openCart()"
         [matBadge]="getCartSize()"
         matBadgeColor="warn"
-        [matBadgeHidden]="(getCartSize() <= 0)"
-    ><mat-icon>shopping_cart</mat-icon></button>
+        [matBadgeHidden]="(getCartSize() <= 0)">
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
 </mat-toolbar>

@@ -1,11 +1,10 @@
 
 .product-card {
-    max-width: 210px;
-    max-height: fit-content;
-    margin: 10px;
-    padding: 0px;
-    
-  }
+  max-width: 250px;
+  margin: 10px;
+  padding: 0px;  
+}
+
 .mat-card-title{
   margin-left: 5px;
   text-transform: capitalize;
@@ -15,4 +14,10 @@
   margin: 0px;
   padding: 0px;
 }
+
+h2{
+  margin-left: 5px;
+}
+
+
   

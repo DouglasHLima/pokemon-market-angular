@@ -23,3 +23,7 @@ GET https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/oth
 GET https://pokeapi.co/api/v2/pokemon-species/1/ HTTP/1.1
 
 
+###
+GET https://pokeapi.co/api/v2/pokemon-species/venusaur/ HTTP/1.1
+
+

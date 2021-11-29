@@ -1,7 +1,5 @@
 
 .blank-spacer{
-    /* display: flex;
-    justify-content: flex-start;
-    flex-grow: 0; */
     flex: 1 1 auto;
 }
+

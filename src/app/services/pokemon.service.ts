@@ -1,9 +1,10 @@
-
-import { Pokemon } from '../model/Pokemon';
-import { Observable } from 'rxjs';
-import { AllPokemonsConfig } from './../model/AllPokemonsConfig';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Pokemon } from '../model/Pokemon';
+import { AllPokemonsConfig } from './../model/AllPokemonsConfig';
+
 
 
 @Injectable({
@@ -17,20 +18,6 @@ export class PokemonService {
 
   
   private pageConfig: Observable<AllPokemonsConfig>
-  private pokemon: Pokemon = {number: 0,
-    name: '',
-    image: '',
-    height:0,
-    weight:0,
-    abilities: [],
-    base_experience: 0,
-    moves: [],
-    species: [],
-    stats: [],
-    types: []
-  }
-
-
 
   constructor(private httpClient: HttpClient) { 
     this.pageConfig = this.getPokemonConfigs()
@@ -41,11 +28,7 @@ export class PokemonService {
   }
   getPokemon(name: string):Observable<Pokemon> {
     return this.httpClient.get<Pokemon>(this.POKEMON_API+name)
-  
   }
-      
-    
-
 
   getPokemonsWithRange(offset:number,limit: number){
     return this.httpClient.get<AllPokemonsConfig>(this.POKEMON_API+`?offset=${offset}&limit=${limit}`)
@@ -58,7 +41,5 @@ export class PokemonService {
   getSpecies(name: string){
     return this.httpClient.get(this.POKEMON_SPECIES+name)
   }
-
-  
 
 }
