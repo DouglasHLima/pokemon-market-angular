@@ -1,10 +1,14 @@
+import { PokemonConfig } from './../models/pokemon-config.model';
+
+
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { PokemonConfig } from 'src/app/model/PokemonConfig';
+import { AllPokemonsConfig } from '../models/all-pokemons-config.model';
+
 
 import { PokemonService } from '../services/pokemon.service';
-import { AllPokemonsConfig } from './../model/AllPokemonsConfig';
+
 
 
 

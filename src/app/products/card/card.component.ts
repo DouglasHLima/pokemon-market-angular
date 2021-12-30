@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PokemonConfig } from 'src/app/model/PokemonConfig';
-import { Product } from 'src/app/model/Product';
+import { PokemonConfig } from 'src/app/models/pokemon-config.model';
+import { Product } from 'src/app/models/product.model';
 
 import { PokemonService } from './../../services/pokemon.service';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
@@ -24,7 +24,7 @@ export class CardComponent implements OnInit {
     private pokemonService: PokemonService,
     private shoppingCartService: ShoppingCartService
   ) {
-
+    
   }
 
   ngOnInit(): void {

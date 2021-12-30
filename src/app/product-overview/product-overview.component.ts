@@ -1,9 +1,9 @@
-import { PokemonSpecies, PokemonTypes } from '../model/pokemon';
+import { PokemonSpecies, PokemonTypes } from '../models/pokemon.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
-import { Product } from './../model/Product';
+import { Product } from '../models/product.model';
 import { PokemonService } from './../services/pokemon.service';
 import { ShoppingCartService } from './../services/shopping-cart.service';
 

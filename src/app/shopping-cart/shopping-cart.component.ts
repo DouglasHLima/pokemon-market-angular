@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ShoppingCartItem } from '../model/ShoppingCartIem';
+import { ShoppingCartItem } from '../models/shoppingCartIem.model';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 
 

@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Pokemon } from '../model/pokemon';
-import { AllPokemonsConfig } from './../model/AllPokemonsConfig';
+
+import { AllPokemonsConfig } from '../models/all-pokemons-config.model';
+import { Pokemon } from '../models/pokemon.model';
 
 
 
