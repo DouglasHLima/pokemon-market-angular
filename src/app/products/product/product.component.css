@@ -1,0 +1,23 @@
+
+.product-card {
+    max-width: 250px;
+    margin: 10px;
+    padding: 0px;  
+  }
+  
+  .mat-card-title{
+    margin-left: 5px;
+    text-transform: capitalize;
+  }
+  
+  .mat-card-actions {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  h2{
+    margin-left: 5px;
+  }
+  
+  
+    

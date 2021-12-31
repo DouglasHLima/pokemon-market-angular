@@ -1,4 +1,4 @@
-import { ProductOverviewComponent } from './product-overview/product-overview.component';
+import { ProductOverviewComponent } from './products/product-overview/product-overview.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductsComponent } from './products/products.component';
 import { NgModule } from '@angular/core';

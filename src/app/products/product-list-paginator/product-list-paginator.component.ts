@@ -3,11 +3,11 @@ import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
-  selector: 'app-paginator',
-  templateUrl: './paginator.component.html',
-  styleUrls: ['./paginator.component.css']
+  selector: 'product-list-paginator',
+  templateUrl: './product-list-paginator.component.html',
+  styleUrls: ['./product-list-paginator.component.css']
 })
-export class PaginatorComponent implements OnInit {
+export class ProductListPaginatorComponent implements OnInit {
 
   pageSizeOptions:number[] = [10,20,50,100,500]
 

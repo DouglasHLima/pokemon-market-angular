@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ShoppingCartItem } from '../models/shoppingCartIem.model';
-import { ShoppingCartService } from '../services/shopping-cart.service';
+import { ShoppingCartItem } from './models/shoppingCartIem.model';
+import { ShoppingCartService } from './services/shopping-cart.service';
+
 
 
 @Component({
@@ -59,5 +60,4 @@ export class ShoppingCartComponent implements OnInit{
     }
     return !form?.valid && !form?.hasError('required') ? `insira um valor válido!` : ''
   }
-
 }

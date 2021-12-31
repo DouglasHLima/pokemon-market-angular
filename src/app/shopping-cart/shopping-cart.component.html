@@ -1,11 +1,11 @@
 <div class="product-list">
-    <app-item-card *ngFor="let item of cart"
+    <item-cart *ngFor="let item of cart"
         [itemCart]="item"
         
         (modifyItemQuantity)="modifyItemQuantity($event)"
         (excludeItem)="excludeItem($event)"  
     >
-    </app-item-card>
+    </item-cart>
 </div>
 
 <div class="checkout">

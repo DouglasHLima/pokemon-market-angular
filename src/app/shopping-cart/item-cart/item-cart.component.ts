@@ -1,16 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
+import { Product } from 'src/app/products/models/product.model';
 
-import { ShoppingCartItem } from 'src/app/models/shoppingCartIem.model';
+import { ShoppingCartItem } from 'src/app/shopping-cart/models/shoppingCartIem.model';
 
 
 
 @Component({
-  selector: 'app-item-card',
-  templateUrl: './item-card.component.html',
-  styleUrls: ['./item-card.component.css']
+  selector: 'item-cart',
+  templateUrl: './item-cart.component.html',
+  styleUrls: ['./item-cart.component.css']
 })
-export class ItemCardComponent implements OnInit {
+export class ItemCartComponent implements OnInit {
   public panelOpenState:Boolean = false;
   public cardStyle: string;
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Product } from 'src/app/model/Product';
+import { Product } from '../models/product.model';
+
 
 import { PokemonService } from './pokemon.service';
 
@@ -8,7 +9,7 @@ import { PokemonService } from './pokemon.service';
 })
 export class ProductsService {
 
-  prouct = new Product(0,'','',0,0,[],0,[],[])
+  product = new Product(0,'','',0,0,[],0,[],[])
 
   constructor(
     private pokemonService: PokemonService,

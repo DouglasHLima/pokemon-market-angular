@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-
-import { Product } from '../models/product.model';
+import { Product } from 'src/app/products/models/product.model';
 import { ShoppingCartItem } from '../models/shoppingCartIem.model';
 import { PersistanceService } from './persistance.service';
+
+
+
+
 
 
 

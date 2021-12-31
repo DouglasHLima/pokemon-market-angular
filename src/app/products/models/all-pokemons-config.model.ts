@@ -2,5 +2,5 @@ export interface AllPokemonsConfig {
     count: number,
     next: string,
     previous: string,
-    results: []
+    results: [{name:string, url:string}]
 }

@@ -1,22 +1,23 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PokemonConfig } from 'src/app/models/pokemon-config.model';
-import { Product } from 'src/app/models/product.model';
 
-import { PokemonService } from './../../services/pokemon.service';
-import { ShoppingCartService } from './../../services/shopping-cart.service';
+import { Product } from 'src/app/products/models/product.model';
+import { PokemonService } from 'src/app/products/services/pokemon.service';
+import { ShoppingCartService } from 'src/app/shopping-cart/services/shopping-cart.service';
+
+import { PokemonConfig } from '../models/pokemon-config.model';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css'],
+  selector: 'pkm-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
-export class CardComponent implements OnInit {
-  
+export class ProductComponent implements OnInit {
+
   public color: string = 'rgba(0, 0, 0, 0.3)';
   public panelOpenState = false;
 
   @Input('pokemon') pokemonConfig: PokemonConfig = { name: '', url: '' };
-  @Output('description') onClickCard: EventEmitter<string> = new EventEmitter();
+  @Output() cardClick: EventEmitter<string> = new EventEmitter();
 
   public product: Product = new Product(0, '', '', 0, 0, [], 0, [], []);
 
@@ -36,8 +37,8 @@ export class CardComponent implements OnInit {
     this.shoppingCartService.addCart(this.product);
   }
 
-  goToDescription() {
-    this.onClickCard.emit(this.product.name);
+  goToDescriptionPage() {
+    this.cardClick.emit(this.product.name);
   }
 
   private setProduct(name: string) {
@@ -55,4 +56,5 @@ export class CardComponent implements OnInit {
       );
     });
   }
+
 }

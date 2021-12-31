@@ -1,11 +1,13 @@
-import { PokemonSpecies, PokemonTypes } from '../models/pokemon.model';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
 import { Product } from '../models/product.model';
-import { PokemonService } from './../services/pokemon.service';
-import { ShoppingCartService } from './../services/shopping-cart.service';
+import { PokemonService } from '../services/pokemon.service';
+
+import { PokemonSpecies, PokemonTypes } from '../models/pokemon.model';
+import { ShoppingCartService } from 'src/app/shopping-cart/services/shopping-cart.service';
 
 @Component({
   selector: 'app-product-overview',
@@ -66,7 +68,8 @@ export class ProductOverviewComponent implements OnInit {
         value.species,
         value.stats,
         value.types
-      );
+      )
+      console.log(this.product.species);
     });
   }
 

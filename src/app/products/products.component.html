@@ -1,11 +1,11 @@
-<app-paginator 
+<product-list-paginator 
     [length]="pageConfig.count"
     [pageSize]="limit"
     (pageEvent)="setPages($event)"
-></app-paginator>
+></product-list-paginator>
 <div class="container">
-    <app-card *ngFor="let pokemon of getPokemonsList()"
+    <pkm-product *ngFor="let pokemon of getPokemonsList()"
         [pokemon]="pokemon"
-        (description)="openDescriptionPage($event)"
-    ></app-card>
+        (cardClick)="onCardClick($event)"
+    ></pkm-product>
 </div>

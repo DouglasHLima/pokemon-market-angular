@@ -1,13 +1,12 @@
-import { PokemonConfig } from './../models/pokemon-config.model';
-
 
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { AllPokemonsConfig } from '../models/all-pokemons-config.model';
+import { AllPokemonsConfig } from './models/all-pokemons-config.model';
+import { PokemonConfig } from './models/pokemon-config.model';
 
 
-import { PokemonService } from '../services/pokemon.service';
+import { PokemonService } from './services/pokemon.service';
 
 
 
@@ -22,7 +21,7 @@ export class ProductsComponent implements OnInit {
 
   private pokemons: PokemonConfig[] = []
 
-  public pageConfig: AllPokemonsConfig = {count:0,next:'',previous:'',results:[]}
+  public pageConfig: AllPokemonsConfig = {count:0,next:'',previous:'',results:[{name:'', url:''}]}
   public offset: number = 0
   public limit: number = 10
 
@@ -40,6 +39,7 @@ export class ProductsComponent implements OnInit {
 
   getPokemonsList(){
     this.pokemons = this.pageConfig.results
+    
     return this.pokemons
   }
 
@@ -54,7 +54,7 @@ export class ProductsComponent implements OnInit {
     this.getPaginationRange(offset,event.pageSize)
   }
 
-  openDescriptionPage(id: string){
+  onCardClick(id: string){
     console.log(id)
     this.router.navigate(['product-overview',id])
   }

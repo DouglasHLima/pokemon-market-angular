@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 
 import { AllPokemonsConfig } from '../models/all-pokemons-config.model';
 import { Pokemon } from '../models/pokemon.model';
+
 
 
 
@@ -18,11 +19,12 @@ export class PokemonService {
   private readonly POKEMON_SPECIES = 'https://pokeapi.co/api/v2/pokemon-species/'
 
   
-  private pageConfig: Observable<AllPokemonsConfig>
+
 
   constructor(private httpClient: HttpClient) { 
-    this.pageConfig = this.getPokemonConfigs()
+    
    }
+  
 
   getPokemonConfigs():Observable<AllPokemonsConfig>{
     return this.httpClient.get<AllPokemonsConfig>(this.POKEMON_API)
@@ -35,11 +37,8 @@ export class PokemonService {
     return this.httpClient.get<AllPokemonsConfig>(this.POKEMON_API+`?offset=${offset}&limit=${limit}`)
   }
 
-  getPageConfig(){
-    return this.pageConfig
-  }
 
-  getSpecies(name: string){
+  getSpecies(name: string):Observable<any>{
     return this.httpClient.get(this.POKEMON_SPECIES+name)
   }
 
