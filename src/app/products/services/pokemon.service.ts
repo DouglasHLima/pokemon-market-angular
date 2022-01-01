@@ -17,7 +17,8 @@ export class PokemonService {
 
   private readonly POKEMON_API = 'https://pokeapi.co/api/v2/pokemon/'
   private readonly POKEMON_SPECIES = 'https://pokeapi.co/api/v2/pokemon-species/'
-
+  private readonly POKEMON_SPRITES = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
+  
   
 
 
@@ -40,6 +41,10 @@ export class PokemonService {
 
   getSpecies(name: string):Observable<any>{
     return this.httpClient.get(this.POKEMON_SPECIES+name)
+  }
+
+  getOfficialArtwork(id: number){
+    return this.POKEMON_SPRITES+'other/official-artwork/'+id+'.png'
   }
 
 }

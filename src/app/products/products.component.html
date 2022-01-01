@@ -7,5 +7,6 @@
     <pkm-product *ngFor="let pokemon of getPokemonsList()"
         [pokemon]="pokemon"
         (cardClick)="onCardClick($event)"
+        (addCart)="onAddToCartClick($event)"
     ></pkm-product>
 </div>

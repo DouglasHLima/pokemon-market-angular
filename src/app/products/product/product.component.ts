@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { take, tap } from 'rxjs/operators';
 
 import { Product } from 'src/app/products/models/product.model';
 import { PokemonService } from 'src/app/products/services/pokemon.service';
-import { ShoppingCartService } from 'src/app/shopping-cart/services/shopping-cart.service';
 
 import { PokemonConfig } from '../models/pokemon-config.model';
 
@@ -18,12 +18,12 @@ export class ProductComponent implements OnInit {
 
   @Input('pokemon') pokemonConfig: PokemonConfig = { name: '', url: '' };
   @Output() cardClick: EventEmitter<string> = new EventEmitter();
+  @Output() addCart: EventEmitter<Product> = new EventEmitter();
 
   public product: Product = new Product(0, '', '', 0, 0, [], 0, [], []);
 
   constructor(
     private pokemonService: PokemonService,
-    private shoppingCartService: ShoppingCartService
   ) {
     
   }
@@ -33,8 +33,7 @@ export class ProductComponent implements OnInit {
   }
 
   addItemToCard() {
-    console.log(this.product);
-    this.shoppingCartService.addCart(this.product);
+    this.addCart.emit(this.product)
   }
 
   goToDescriptionPage() {
@@ -42,11 +41,15 @@ export class ProductComponent implements OnInit {
   }
 
   private setProduct(name: string) {
-    this.pokemonService.getPokemon(name).subscribe((value: any) => {
+    this.pokemonService.getPokemon(name)
+    .pipe(
+      take(1)
+    )
+    .subscribe((value: any) => {
       this.product = new Product(
         value.id,
         value.name,
-        value.sprites.other['official-artwork'].front_default,
+        this.pokemonService.getOfficialArtwork(value.id),
         value.height,
         value.weight,
         value.moves,
