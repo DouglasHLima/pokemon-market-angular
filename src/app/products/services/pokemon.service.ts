@@ -1,3 +1,4 @@
+import { PokemonFull } from './../models/pokemon.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
@@ -30,8 +31,8 @@ export class PokemonService {
   getPokemonConfigs():Observable<AllPokemonsConfig>{
     return this.httpClient.get<AllPokemonsConfig>(this.POKEMON_API)
   }
-  getPokemon(name: string):Observable<Pokemon> {
-    return this.httpClient.get<Pokemon>(this.POKEMON_API+name)
+  getPokemon(name: string):Observable<PokemonFull> {
+    return this.httpClient.get<PokemonFull>(this.POKEMON_API+name)
   }
 
   getPokemonsWithRange(offset:number,limit: number){

@@ -1,3 +1,4 @@
+import { PokemonFull } from './../models/pokemon.model';
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -20,7 +21,7 @@ export class ProductOverviewComponent implements OnInit {
 
   private id: string;
 
-  public product: Product = new Product(0, '', '', 0, 0, [], 0, [], []);
+  public product: Product = new Product(0, '', '', 0, 0);
 
   public pokemonSpecieStats: PokemonSpecies = {
     base_happiness: 0,
@@ -57,24 +58,20 @@ export class ProductOverviewComponent implements OnInit {
   }
 
   private setProduct(name: string) {
-    this.pokemonService.getPokemon(name).subscribe((value: any) => {
+    this.pokemonService.getPokemon(name).subscribe((value: PokemonFull) => {
       this.product = new Product(
         value.id,
         value.name,
-        value.sprites.other['official-artwork'].front_default,
+        this.pokemonService.getOfficialArtwork(value.id),
         value.height,
         value.weight,
-        value.moves,
-        value.species,
-        value.stats,
-        value.types
       )
-      console.log(this.product.species);
+      
     });
   }
 
   getTypes(): PokemonTypes[] {
-    return this.product.types;
+    return [] //this.product.types;
   }
 
   getSpecies(name: string) {

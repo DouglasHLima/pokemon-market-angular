@@ -1,8 +1,20 @@
-<mat-card class="product-card mat-elevation-z8 " *ngIf="product" >
+<mat-card class="product-card  " 
+     
+
+          [ngClass]="{
+            'mat-elevation-z2': mouseOn,
+            'mat-elevation-z10': !mouseOn
+          }"
+          
+          (mouseenter)="changeElevation()"
+          (mouseleave)="changeElevation()"
+          
+          
+          *ngIf="product" >
     <div class="ripple-class" 
     matRipple
     [matRippleColor]="color"
-    (click)="goToDescriptionPage()"
+    (click)="mouseOn"
     >  
     <img mat-card-image [src]="product.image" alt="pokemon image">
       <mat-card-content>

@@ -16,9 +16,9 @@ export class ItemCartComponent implements OnInit {
 
   @Input() quantity = 1;
 
-  @Input() product: Product = new Product(0,'','',0,0,[],0,[],[]);
+  @Input() product: Product = new Product(0,'','',0,0);
 
-  @Input() itemCart: ShoppingCartItem = {product: new Product(0,'','',0,0,[],0,[],[]),quantity: 0};
+  @Input() itemCart: ShoppingCartItem = {product: new Product(0,'','',0,0),quantity: 0};
   
   @Output() modifyItemQuantity = new EventEmitter();
   @Output() excludeItem = new EventEmitter();

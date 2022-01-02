@@ -4,8 +4,8 @@
     (pageEvent)="setPages($event)"
 ></product-list-paginator>
 <div class="container">
-    <pkm-product *ngFor="let pokemon of getPokemonsList()"
-        [pokemon]="pokemon"
+    <pkm-product *ngFor="let pokemon of products"
+        [product]="pokemon"
         (cardClick)="onCardClick($event)"
         (addCart)="onAddToCartClick($event)"
     ></pkm-product>

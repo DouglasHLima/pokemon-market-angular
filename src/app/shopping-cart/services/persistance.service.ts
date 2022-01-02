@@ -21,11 +21,7 @@ export class PersistanceService {
           value.product.name,
           value.product.image,
           value.product.height,
-          value.product.weight,
-          value.product.moves,
-          value.product.species,
-          value.product.stats,
-          value.product.types
+          value.product.weight
         ),
         quantity: value.quantity }
       }

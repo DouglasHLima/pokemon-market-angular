@@ -1,14 +1,14 @@
+import { ProductsService } from './services/products.service';
 import { ShoppingCartService } from 'src/app/shopping-cart/services/shopping-cart.service';
 import { Product } from './models/product.model';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { AllPokemonsConfig } from './models/all-pokemons-config.model';
-import { PokemonConfig } from './models/pokemon-config.model';
 
 
-import { PokemonService } from './services/pokemon.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -19,42 +19,57 @@ import { PokemonService } from './services/pokemon.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
 
-  private pokemons: PokemonConfig[] = []
 
+  
   public pageConfig: AllPokemonsConfig = {count:0,next:'',previous:'',results:[{name:'', url:''}]}
   public offset: number = 0
   public limit: number = 10
 
+  products: Product[] = []
+  pageConfigSubscriber: Subscription;
+  productsSubscriber: Subscription;
+
 
   constructor(
-    private pokemonService: PokemonService,
     private shoppingCartService: ShoppingCartService,
     private router: Router,
-    ) { 
-    
+    private productService: ProductsService
+  )
+  { 
+    this.productsSubscriber = this.productService.productsListChange.subscribe(
+      (value) => {
+        this.products = value
+      }
+    )
+    this.pageConfigSubscriber = this.productService.productsPageConfig.subscribe(
+      (value) => {
+        this.pageConfig = value
+      }
+    )
   }
+
 
   ngOnInit(): void {
-    this.getPaginationRange(this.offset,this.limit)
-  }
-
-  getPokemonsList(){
-    this.pokemons = this.pageConfig.results
+    this.setProducts(this.offset,this.limit)
     
-    return this.pokemons
   }
 
-  getPaginationRange(offset:number,limit:number){
-    this.pokemonService.getPokemonsWithRange(offset,limit).subscribe(
-      value => this.pageConfig = value
-    )
+  ngOnDestroy(): void {
+    this.pageConfigSubscriber.unsubscribe()
+    this.productsSubscriber.unsubscribe()
+  }
+
+  setProducts(offset:number,limit:number){
+
+    this.productService.setproducts(offset,limit)
+    
   }
 
   setPages(event: PageEvent){
     let offset = event.pageIndex * event.pageSize;
-    this.getPaginationRange(offset,event.pageSize)
+    this.setProducts(offset,event.pageSize)
   }
 
   onCardClick(id: string){
