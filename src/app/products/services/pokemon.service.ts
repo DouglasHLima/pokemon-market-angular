@@ -1,11 +1,10 @@
 import { PokemonFull } from './../models/pokemon.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 import { AllPokemonsConfig } from '../models/all-pokemons-config.model';
-import { Pokemon } from '../models/pokemon.model';
 
 
 

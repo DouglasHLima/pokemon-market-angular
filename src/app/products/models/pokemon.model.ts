@@ -1,20 +1,4 @@
 
-
-
-export interface Pokemon {
-     number: number;
-     name: string;
-     image: string;
-     height: number;
-     weight: number;
-     abilities:[]
-     base_experience:number
-     moves: []
-     species:{}
-     stats:[]
-     types:[]
-}
-
 export interface PokemonSpecies {
     base_happiness: number;
     capture_rate: number;
